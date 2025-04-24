@@ -56,6 +56,51 @@ for i in range(0,4):
     activation = linear_threshold_gate(dot_product[i], T)
     print(f'Activation: {activation}')
 ```
+#### Activation-Function
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+x=np.linspace(-10, 10)
+
+def BinaryStep(x):
+  return np.heaviside(x, 1)
+plt.plot(x, BinaryStep(x))
+plt.axis('tight')
+plt.show()
+
+def linear(x):
+  return x
+plt.plot(x, linear(x))
+plt.show()
+
+def sigmoid(x):
+  return 1/(1+np.exp(-x))
+plt.plot(x, sigmoid(x))
+plt.show()
+
+def Tanh(x):
+  return np.tanh(x)
+plt.plot(x, Tanh(x))
+plt.show()
+
+def ReLU(x):
+  x1=[]
+  for i in x:
+    if i<0:
+      x1.append(0)
+    else:
+      x1.append(i)
+  return x1
+plt.plot(x, ReLU(x))
+plt.show()
+
+def SoftMax(x):
+  return np.exp(x)/np.sum(np.exp(x), axis=0)
+plt.plot(x, SoftMax(x))
+plt.show()
+```
 #### Hebbian
 ```python
 import numpy as np
