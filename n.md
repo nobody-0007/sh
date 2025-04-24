@@ -134,6 +134,62 @@ for i in range (len(X)):
   it+=1
 
 ```
+#### SDPTA
+```python
+import numpy as np
+import pandas as pd
+
+W= np.array([1, -1, 0, 0.5]).transpose()
+
+X = [np.array ([1, -2, 0, -1]).transpose(),
+      np.array ([0, 1.5, 0.5, -1]).transpose(),
+      np.array([-1, 1, 0.5, -1]).transpose()]
+print('Initial Weights:', W)
+print('X:', X)
+
+d= [-1, -1, 1]
+c = 0.1
+
+error = 0
+Error = 1
+
+iteration = 0
+i = 0
+j = 0
+
+while (Error != 0.0):
+
+  net=sum(W.transpose()*X[i])
+
+  o = 1
+  if net < 0:
+    o = -1
+
+  error = error + 0.5 * ((d[i] - o) ** 2)
+  Error = np.round(error, 1)
+
+  print('Error:', Error)
+  dw = c * (d[i] - o) * Xi[i]
+  W = W + dw
+
+  print('Updated Weights', i + 1, W)
+
+  iteration += 1
+  print('Iteration', i + 1, ':', iteration)
+
+  i += 1
+  if i > 2:
+    i = 0
+    j += 1
+    error = 0
+
+  if Error == 0.0:
+    break
+
+print("Final Weight Matrix:{}".format(W))
+print("Cycle Epoch Counter:{}".format(j))
+print("Iteration:{}".format(iteration))
+```
 #### SCPTA
 ```python
 import numpy as np
