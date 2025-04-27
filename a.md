@@ -185,7 +185,7 @@ def BFS(initial,goal):
             if child not in frontier and child not in explored:
                 frontier.append(child)
 ans=BFS(initial,goal)
-print("The order in which the BFS algorithm traversed is: ",ans)       
+print("The BFS is: ",ans)       
 
 def DFS(initial,goal):
     frontier=[]
