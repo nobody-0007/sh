@@ -345,7 +345,7 @@ check_line([A,B,C], Board, Player) :-
     nth0(C, Board, Player).
 ```
 
-#### Monkey-Banana Problem
+#### MB & WJ
 ```
 % initial state: Monkey is at door,
 %                Monkey is on floor,
@@ -405,6 +405,64 @@ add(X,L,[X|L]).
 % Monkey = atwindow
 % Plan = [push(atwindow, middle), climb, grasp]
 % Yes
+
+## Water Jug
+a=int(input("Enter Jug A capacity: "));
+b=int(input("Enter Jug B capacity: "));
+ai=int(input("\nInitially water in Jug A: "));
+bi=int(input("Initially water in Jug B: "));
+af=int(input("\nFinal state of Jug A: "));
+bf=int(input("Final state of Jug B: "));
+print("\nList of operations you can do:\n");
+print("  1. Fill Jug A Completely");
+print("  2. Fill Jug B Completely");
+print("  3. Empty Jug A Completely");
+print("  4. Empty Jug B Completely");
+print("  5. Pour from Jug A till Jug B filled Completely OR Jug A becomes Empty");
+print("  6. Pour from Jug B till Jug A filled Completely OR Jug B becomes Empty");
+print("  7. Pour all from Jug B to Jug A filled Completely OR Jug A becomes Empty");
+print("  8. Pour all from Jug A to Jug B filled Completely OR Jug A becomes Empty");
+print("----------------------------------------------------------\n");
+
+while ai!=af or bi!=bf:
+       op=int(input("Enter the Operation: "));
+       if(op==1):
+        ai=a;
+
+       elif(op==2):
+        bi=b;
+
+       elif(op==3):
+        ai=0;
+
+       elif(op==4):
+        bi=0;
+
+       elif(op==5):
+        if((b-bi)>=ai):
+         bi=bi+ai;
+         ai=0;
+        else:
+         ai=ai-(b-bi);
+         bi=b;
+
+       elif(op==6):
+        if((a-ai)>=bi):
+         ai=ai+bi;
+         bi=0;
+        else:
+         bi=bi-(a-ai);
+         ai=a;
+
+       elif(op==7):
+        ai=ai+bi;
+        bi=0;
+
+       elif(op==8):
+        bi=bi-ai;
+        ai=0;
+
+       print(ai,bi);
 ```
 
 #### C to F
